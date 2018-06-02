@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_radeeb_control/lib/pkgconfig/lab06_radeeb_control.pc

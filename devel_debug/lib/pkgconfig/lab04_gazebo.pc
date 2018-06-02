@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab04_gazebo/lib/pkgconfig/lab04_gazebo.pc

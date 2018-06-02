@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/urdf_tutorial/lib/pkgconfig/urdf_tutorial.pc

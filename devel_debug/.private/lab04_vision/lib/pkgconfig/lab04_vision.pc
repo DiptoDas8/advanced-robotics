@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab04_vision
+
+Name: lab04_vision
+Description: Description of lab04_vision
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab04_vision/lib 
+Requires: 

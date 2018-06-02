@@ -1,0 +1,6 @@
+devel_space: /home/dipto/ros_workspaces/csc790_labs/devel_debug
+install: false
+install_space: /home/dipto/ros_workspaces/csc790_labs/install_debug
+profile: debug
+source_space: /home/dipto/ros_workspaces/csc790_labs/src
+workspace: /home/dipto/ros_workspaces/csc790_labs

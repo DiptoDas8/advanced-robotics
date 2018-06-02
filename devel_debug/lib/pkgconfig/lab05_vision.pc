@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab05_vision/lib/pkgconfig/lab05_vision.pc

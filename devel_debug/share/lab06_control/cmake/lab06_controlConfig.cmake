@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_control/share/lab06_control/cmake/lab06_controlConfig.cmake

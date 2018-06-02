@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/install_debug
+
+Name: lab01_talker
+Description: Description of lab01_talker
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/install_debug/lib 
+Requires: 

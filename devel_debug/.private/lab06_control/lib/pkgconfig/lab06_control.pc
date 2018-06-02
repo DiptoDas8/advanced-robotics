@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_control
+
+Name: lab06_control
+Description: Description of lab06_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_control/lib 
+Requires: 

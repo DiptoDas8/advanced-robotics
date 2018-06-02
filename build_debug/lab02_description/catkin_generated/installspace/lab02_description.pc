@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/install_debug
+
+Name: lab02_description
+Description: Description of lab02_description
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/install_debug/lib 
+Requires: 

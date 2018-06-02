@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab05_gazebo
+
+Name: lab05_gazebo
+Description: Description of lab05_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab05_gazebo/lib 
+Requires: 

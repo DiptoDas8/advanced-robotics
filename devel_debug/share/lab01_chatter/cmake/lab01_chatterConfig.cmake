@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab01_chatter/share/lab01_chatter/cmake/lab01_chatterConfig.cmake

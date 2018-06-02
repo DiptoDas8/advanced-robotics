@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab05_control/lib/pkgconfig/lab05_control.pc

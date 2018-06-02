@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_93fcc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_93fcc.dir/build.make CMakeFiles/cmTC_93fcc.dir/build
+make[1]: Entering directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_93fcc.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_93fcc.dir/CheckSymbolExists.c.o   -c /home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_93fcc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93fcc.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_93fcc.dir/CheckSymbolExists.c.o  -o cmTC_93fcc -rdynamic 
+CMakeFiles/cmTC_93fcc.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_93fcc.dir/build.make:97: recipe for target 'cmTC_93fcc' failed
+make[1]: *** [cmTC_93fcc] Error 1
+make[1]: Leaving directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_93fcc/fast' failed
+make: *** [cmTC_93fcc/fast] Error 2
+
+File /home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3cade/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3cade.dir/build.make CMakeFiles/cmTC_3cade.dir/build
+make[1]: Entering directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3cade.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3cade.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3cade
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3cade.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_3cade.dir/CheckFunctionExists.c.o  -o cmTC_3cade -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3cade.dir/build.make:97: recipe for target 'cmTC_3cade' failed
+make[1]: *** [cmTC_3cade] Error 1
+make[1]: Leaving directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab05_control/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_3cade/fast' failed
+make: *** [cmTC_3cade/fast] Error 2
+
+

@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8ae3e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8ae3e.dir/build.make CMakeFiles/cmTC_8ae3e.dir/build
+make[1]: Entering directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8ae3e.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_8ae3e.dir/CheckSymbolExists.c.o   -c /home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8ae3e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ae3e.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_8ae3e.dir/CheckSymbolExists.c.o  -o cmTC_8ae3e -rdynamic 
+CMakeFiles/cmTC_8ae3e.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8ae3e.dir/build.make:97: recipe for target 'cmTC_8ae3e' failed
+make[1]: *** [cmTC_8ae3e] Error 1
+make[1]: Leaving directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8ae3e/fast' failed
+make: *** [cmTC_8ae3e/fast] Error 2
+
+File /home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f6595/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f6595.dir/build.make CMakeFiles/cmTC_f6595.dir/build
+make[1]: Entering directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6595.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f6595.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f6595
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6595.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f6595.dir/CheckFunctionExists.c.o  -o cmTC_f6595 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f6595.dir/build.make:97: recipe for target 'cmTC_f6595' failed
+make[1]: *** [cmTC_f6595] Error 1
+make[1]: Leaving directory '/home/dipto/ros_workspaces/csc790_labs/build_debug/lab06_gazebo/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f6595/fast' failed
+make: *** [cmTC_f6595/fast] Error 2
+
+

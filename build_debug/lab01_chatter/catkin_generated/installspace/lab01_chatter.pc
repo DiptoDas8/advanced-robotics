@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/install_debug
+
+Name: lab01_chatter
+Description: Description of lab01_chatter
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/install_debug/lib 
+Requires: 

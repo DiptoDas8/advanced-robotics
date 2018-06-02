@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_radeeb_gazebo
+
+Name: lab06_radeeb_gazebo
+Description: Description of lab06_radeeb_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_radeeb_gazebo/lib 
+Requires: 

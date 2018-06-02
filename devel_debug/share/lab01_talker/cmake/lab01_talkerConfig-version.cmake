@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab01_talker/share/lab01_talker/cmake/lab01_talkerConfig-version.cmake

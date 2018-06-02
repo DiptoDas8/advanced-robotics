@@ -1,0 +1,1 @@
+/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab04_description/lib/pkgconfig/lab04_description.pc

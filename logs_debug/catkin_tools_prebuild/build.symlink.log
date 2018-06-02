@@ -1,0 +1,8 @@
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/./_setup_util.py
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/./setup.bash
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/./env.sh
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/./setup.sh
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/./setup.zsh
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/lib/pkgconfig/catkin_tools_prebuild.pc
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Symlinking /home/dipto/ros_workspaces/csc790_labs/devel_debug/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake

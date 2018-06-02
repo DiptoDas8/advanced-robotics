@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/urdf_tutorial
+
+Name: urdf_tutorial
+Description: Description of urdf_tutorial
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/urdf_tutorial/lib 
+Requires: 

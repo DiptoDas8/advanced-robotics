@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_radeeb_vision
+
+Name: lab06_radeeb_vision
+Description: Description of lab06_radeeb_vision
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/devel_debug/.private/lab06_radeeb_vision/lib 
+Requires: 

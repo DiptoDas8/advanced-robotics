@@ -1,0 +1,8 @@
+prefix=/home/dipto/ros_workspaces/csc790_labs/install_debug
+
+Name: lab04_gazebo
+Description: Description of lab04_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dipto/ros_workspaces/csc790_labs/install_debug/lib 
+Requires: 
