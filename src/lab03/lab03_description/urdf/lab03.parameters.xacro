@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lab03">
+
+	<xacro:property name="PI" value="3.1415926535897931 " />
+	<xacro:property name="density" value="1925.00"/>
+
+	<xacro:property name="chassis_radius" value="$(arg chassis_radius)"/>
+	<xacro:property name="chassis_height" value="$(arg chassis_height)"/>
+	<xacro:property name="wheel_radius" value="$(arg wheel_radius)"/>
+	<xacro:property name="glider_radius" value="$(arg glider_radius)"/>
+
+	<xacro:property name="chassis_mass" value="${density * PI*($(arg chassis_radius)**2)*$(arg chassis_height)}" />
+	<xacro:property name="wheel_mass" value="${density * (4/3)*PI*$(arg wheel_radius)**3}" />
+	<xacro:property name="glider_mass" value="${density* (4/3)*PI*$(arg glider_radius)**3}"/>
+
+	<!-- Vertical offset so that the robot starts above ground -->
+	<xacro:property name="z_offset" value="0.5" />
+
+</robot>

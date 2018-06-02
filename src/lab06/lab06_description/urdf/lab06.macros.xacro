@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lab06">
+
+
+
+    <!-- Create cylinder geometry -->
+    <xacro:macro name="create_cylinder_geometry" params="radius length">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <cylinder radius="${radius}" length="${length}" />
+        </geometry>
+    </xacro:macro>
+
+
+
+    <!-- Create sphere geometry -->
+    <xacro:macro name="create_sphere_geometry" params="radius">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <sphere radius="${radius}" />
+        </geometry>
+    </xacro:macro>
+
+
+
+    <!-- Macro for creating a cylinder inertial element -->
+    <xacro:macro name="create_cylinder_inertial" params="mass radius length">
+        <inertial>
+            <mass value="${mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia
+                ixx="${(1/12)*mass*(3*radius**2 + length**2)}"
+                ixy="0"
+                ixz="0"
+                iyy="${(1/12)*mass*(3*radius**2 + length**2)}"
+                iyz="0"
+                izz="${(1/2)*mass*radius**2}"
+                />
+        </inertial>
+    </xacro:macro>
+
+
+
+    <!-- Macro for creating a sphere inertial element -->
+    <xacro:macro name="create_sphere_inertial" params="mass radius">
+        <inertial>
+            <mass value="${mass}" />
+            <inertia
+                ixx="${(2/5) * mass * radius * radius}"
+                ixy="0"
+                ixz="0"
+                iyy="${(2/5) * mass * radius * radius}"
+                iyz="0"
+                izz="${(2/5) * mass * radius * radius}"
+                />
+        </inertial>
+    </xacro:macro>
+
+
+
+    <!--
+         Macro for creating wheels
+            reflect_lr  : left (1) or right (-1) wheel
+            wheel_id    : give the wheel a unique identifier
+            parent_name : the name of the wheel's parent
+    -->
+    <xacro:macro name="create_wheel" params="reflect_lr wheel_id parent_name">
+
+        <!-- The name of the current wheel -->
+        <xacro:property name="wheel_name" value="${wheel_id}_wheel" />
+
+
+        <!-- The wheel's rigid body -->
+        <link name="${wheel_name}">
+
+            <!-- Create the wheel visual -->
+            <visual>
+                <xacro:create_sphere_geometry radius="${wheel_radius}" />
+                <material name="red" />
+            </visual>
+
+
+            <!-- The wheel's collision shape -->
+            <collision>
+                <xacro:create_sphere_geometry radius="${wheel_radius}" />
+            </collision>
+
+
+            <!-- Create the wheel's inertial matrix -->
+            <xacro:create_cylinder_inertial
+                mass="${wheel_mass}" radius="${wheel_radius}"
+                length="${wheel_length}"/>
+
+        </link>
+
+
+        <!-- Connect the wheel to its parent -->
+        <joint name="${wheel_name}_joint" type="continuous">
+            <parent link="${parent_name}" />
+            <child link="${wheel_name}" />
+            <origin xyz="0 ${(chassis_radius - wheel_radius * 1.1) * reflect_lr} 0" rpy="0 0 0" />
+            <axis xyz="0 1 0" />
+            <!-- <limit effort="10" velocity="10" /> -->
+        </joint>
+
+    </xacro:macro>
+
+
+
+
+    <!--
+         Macro for creating glides
+            reflect_fr  : front (1) or rear (-1) glide
+            glide_id    : give the glide a unique identifier
+            parent_name : the name of the glide's parent
+    -->
+    <xacro:macro name="create_glide" params="reflect_fr glide_id parent_name">
+
+        <!-- The name of the current glide -->
+        <xacro:property name="glide_name" value="${glide_id}_glide" />
+
+
+        <!-- The glide's rigid body -->
+        <link name="${glide_name}">
+
+            <!-- Create the glide visual -->
+            <visual>
+                <xacro:create_sphere_geometry radius="${glide_radius}" />
+                <material name="blue" />
+            </visual>
+
+            <!-- The glide's collision shape -->
+            <collision>
+                <xacro:create_sphere_geometry radius="${glide_radius}" />
+            </collision>
+
+            <!-- Create the glide's inertial matrix -->
+            <xacro:create_sphere_inertial
+                mass="${glide_mass}" radius="${glide_radius}" />
+
+        </link>
+
+
+        <!-- Connect the glide to its parent -->
+        <joint name="${glide_name}_joint" type="fixed">
+            <parent link="${parent_name}" />
+            <child link="${glide_name}" />
+            <origin
+                xyz="${(chassis_radius - glide_radius) * reflect_fr} 0 ${-chassis_height/2}"
+                rpy="0 0 0" />
+            <!-- <limit effort="10" velocity="10" /> -->
+        </joint>
+
+    </xacro:macro>
+</robot>

@@ -1,0 +1,27 @@
+<launch>
+
+	<arg name="model" default="$(find lab03_description)/urdf/lab03.main.xacro"/>
+	<arg name="chassis_radius" default="0.2"/>
+	<arg name="chassis_height" default="0.1"/>
+	<arg name="wheel_radius" default="0.075"/>
+	<arg name="wheel_length" default="0.05"/>
+	<arg name="glider_radius" default="0.02"/>
+
+
+	<arg name="gui" default="true" />
+	<arg name="rvizconfig" default="$(find lab03_description)/rviz/urdf.rviz" />
+
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)
+		chassis_radius:=$(arg chassis_radius)
+		chassis_height:=$(arg chassis_height)
+		wheel_radius:=$(arg wheel_radius)
+		wheel_length:=$(arg wheel_length)
+		glider_radius:=$(arg glider_radius)" />
+		
+	<param name="use_gui" value="$(arg gui)"/>
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

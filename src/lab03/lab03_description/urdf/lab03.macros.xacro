@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lab03">
+
+	<!--
+         Macro for creating wheels
+            reflect_lr : is the wheel left (-1) or right (1)
+            suffix     : give the wheel a unique name
+    -->
+    <xacro:macro name="wheel" params="reflect_lr suffix">
+
+    	<!-- The name of the current wheel -->
+    	<xacro:property name="wheel_name" value="${suffix}_wheel"/>
+
+    	<!-- Create the wheel geometry (for visual debug and collisions) -->
+    	<xacro:property name="wheel_geometry">
+    		<geometry>
+    			<sphere radius="${wheel_radius}"/>
+    		</geometry>
+    		<origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+    	</xacro:property>
+
+    	<!-- Add the wheel's Gazebo material -->
+        <xacro:gz_black_material name="${wheel_name}" />
+
+        <!-- Make the wheel have lower friction -->
+		<xacro:gz_low_friction name="${wheel_name}" />
+
+		<link name="${wheel_name}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<sphere radius="${wheel_radius}"/>
+				</geometry>
+				<material name="black"/>
+			</visual>
+
+			<collision>
+				<xacro:insert_block name="wheel_geometry"/>
+			</collision>
+
+			<inertial>
+				<mass value="${wheel_mass}"/>
+				<origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+				<inertia
+					ixx="${(2/5)*wheel_mass*(wheel_radius**2)}"
+					ixy="0"
+					ixz="0"
+					iyy="${(2/5)*wheel_mass*(wheel_radius**2)}"
+					iyz="0"
+					izz="${(2/5)*wheel_mass*(wheel_radius**2)}"
+				/>
+			</inertial>
+		</link>
+
+		<joint name="${wheel_name}_joint" type="continuous">
+			<parent link="robot_chassis" />
+			<child link="${wheel_name}"/>
+			<origin xyz="0 ${(wheel_radius+chassis_radius)/2*reflect_lr} 0" rpy="0 0 0"/>
+			<axis xyz="0 1 0"/>
+			<limit effort="10" velocity="10"/>
+		</joint>
+
+    </xacro:macro>
+
+
+    <!--
+         Macro for creating gliders
+            reflect_fr : is the glider front (1) or rear (-1)
+            suffix     : give the glider a unique name
+    -->
+
+    <xacro:macro name="glider" params="reflect_fr suffix">
+
+    	<!-- The name of the current glider -->
+    	<xacro:property name="glider_name" value="${suffix}_glider"/>
+
+    	<!-- Create the glider geometry (for visual debug and collisions) -->
+    	<xacro:property name="glider_geometry">
+    		<geometry>
+    			<sphere radius="${glider_radius}"/>
+    		</geometry>
+    		<origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+    	</xacro:property>
+
+    	<!-- Add the glider's Gazebo material -->
+        <xacro:gz_black_material name="${glider_name}" />
+
+        <!-- Make the glider have lower friction -->
+		<xacro:gz_low_friction name="${glider_name}" />
+
+		<link name="${glider_name}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<sphere radius="${glider_radius}"/>
+				</geometry>
+				<material name="black"/>
+			</visual>
+
+			<collision>
+				<xacro:insert_block name="glider_geometry"/>
+			</collision>
+
+			<inertial>
+				<mass value="${glider_mass}"/>
+				<origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+				<inertia
+					ixx="${(2/5)*glider_mass*(glider_radius**2)}"
+					ixy="0"
+					ixz="0"
+					iyy="${(2/5)*glider_mass*(glider_radius**2)}"
+					iyz="0"
+					izz="${(2/5)*glider_mass*(glider_radius**2)}"
+				/>
+			</inertial>
+		</link>
+
+		<joint name="${glider_name}_joint" type="continuous">
+			<parent link="robot_chassis" />
+			<child link="${glider_name}"/>
+			<origin xyz="${(chassis_radius+glider_radius)/2*reflect_fr} 0 ${-(chassis_height+glider_radius)/2}" rpy="0 0 0"/>
+			<axis xyz="0 1 0"/>
+			<limit effort="10" velocity="10"/>
+		</joint>
+
+    </xacro:macro>
+
+</robot>

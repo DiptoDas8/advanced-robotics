@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lab06">
+
+
+
+    <!--
+         Command line arguments for the adabot
+         (See display.launch for default values)
+    -->
+    <xacro:arg name="chassis_radius" default="1" />
+    <xacro:arg name="chassis_height" default="1" />
+    <xacro:arg name="wheel_radius"   default="1" />
+    <xacro:arg name="glide_radius"   default="1" />
+
+
+
+    <!--
+         Properties for the robot bodies
+    -->
+
+    <!-- Robot vertical offset -->
+    <xacro:property name="vertical_offset" value="${wheel_radius * 1.1}" />
+
+    <!-- Chassis parameters -->
+    <xacro:property name="chassis_density" value="500.0" />
+    <xacro:property name="chassis_radius"  value="$(arg chassis_radius)" />
+    <xacro:property name="chassis_height"  value="$(arg chassis_height)" />
+    <xacro:property name="chassis_mass"
+        value="${chassis_density * pi * chassis_radius**2 * chassis_height}" />
+
+    <!-- Wheel parameters (wheel_length is only used for inertial properties)-->
+    <xacro:property name="wheel_density" value="800.0" />
+    <xacro:property name="wheel_radius"  value="$(arg wheel_radius)" />
+    <xacro:property name="wheel_length"  value="${$(arg wheel_radius) * 0.5}" />
+    <xacro:property name="wheel_mass"
+        value="${wheel_density * pi * wheel_radius**2 * wheel_length}" />
+
+    <!-- Glide parameters -->
+    <xacro:property name="glide_density" value="200.0" />
+    <xacro:property name="glide_radius"  value="$(arg glide_radius)" />
+    <xacro:property name="glide_mass"
+        value="${glide_density * 4.0 / 3.0 * pi * glide_radius**3}" />
+
+</robot>
